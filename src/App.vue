@@ -1,47 +1,25 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <v-app id="inspire">
+    <Sidebar :drawer="drawer" />
+    <Topbar @drawerEvent="drawer = !drawer" />
+    <v-main style="background: #f5f5f540">
+      <v-container class="py-8 px-6" fluid>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script>
+import Sidebar from './components/Sidebar'
+import Topbar from './components/Topbar'
+export default {
+  name: 'App',
+  components: { Topbar, Sidebar },
+  data: () => ({
+    cards: ['Today', 'Yesterday'],
+    drawer: null
+  }),
+  methods: {}
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+</script>
