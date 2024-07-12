@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Sidebar from './components/Sidebar'
-import Topbar from './components/Topbar'
+import Sidebar from './components/Sidebar.vue'
+import Topbar from './components/Topbar.vue'
 export default {
   name: 'App',
   components: { Topbar, Sidebar },

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app>
+  <v-navigation-drawer v-on="drawer" app>
     <v-img
       height="140"
       class="pa-4"
